@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './components/header';
+import Footer from './components/footer';
 
 function App() {
+  const headerProps = {
+    title: 'Custom Header Title',
+    subtitle: 'Subtitle for the header',
+  };
+
+  const text = "Marathon Level 2";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header {...headerProps} />
+      <p>Main Content Goes Here</p>
+      {/* ... */}
+      <Footer title={text}/>
     </div>
   );
 }
