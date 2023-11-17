@@ -9,10 +9,10 @@ function App() {
     console.log("Day la message 1")
     console.log("Day la message 2")
   }, []);
-  const [State, setState] = useState([]);
-  const setButton = () => {
-    setState(Math.random())
-  }
+ // const [State, setState] = useState([]);
+  //const setButton = () => {
+    //setState(Math.random())
+  //}
   const userprops = {
     name: "Huy",
     age: "23",
@@ -21,8 +21,8 @@ function App() {
 
   return (
     <div className="App">
-      <p>{State}</p>
-      <button onClick={setButton}>Nhan vao day de push so</button>
+    
+      
       <Router>
         <Routes>
           <Route path="/" element={<User {...userprops} />} />
