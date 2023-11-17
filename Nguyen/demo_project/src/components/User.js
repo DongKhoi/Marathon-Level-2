@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import userService from "../services/UserService";
 function User(props) {
   const [array, setArray] = useState([]);
-  var buttonClick = () => {
-    setArray((previousArray) => {
-      return previousArray.concat(Math.random() * 10);
-    });
+  var fetchUsers = async () => {
+    const Users = await userService.getUser();
+    console.log("This is result:", Users);
+    setArray(Users);
   };
+  useEffect(() => {
+    console.log(array);
+  }, [array]);
   return (
     <div>
       <h2>
@@ -22,10 +26,10 @@ function User(props) {
         <button>Đến trang Customer</button>
       </Link>
       <h2>Đây là nơi in ra mảng</h2>
-      <button onClick={buttonClick}>Thêm phần tử vào mảng</button>
+      <button onClick={fetchUsers}>Call api</button>
       <ul>
         {array.map((item, index) => {
-          return <li key={index}>{item}</li>;
+          return <li key={index}>{item.name}</li>;
         })}
       </ul>
     </div>
