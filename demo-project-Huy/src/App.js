@@ -1,15 +1,35 @@
 import User from './components/user';
+import React, { useState, useEffect } from 'react';
+import Customer from './components/customer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 
 function App() {
-  
-  const userprops={
-      name: "Huy",
-      age:"23",
-      phone: "08012346"
-};
+  useEffect(() => {
+    console.log("Day la message 1")
+    console.log("Day la message 2")
+  }, []);
+  const [State, setState] = useState([]);
+  const setButton = () => {
+    setState(Math.random())
+  }
+  const userprops = {
+    name: "Huy",
+    age: "23",
+    phone: "08012346"
+  };
+
   return (
     <div className="App">
-      <User {...userprops}/>
+      <p>{State}</p>
+      <button onClick={setButton}>Nhan vao day de push so</button>
+      <Router>
+        <Routes>
+          <Route path="/" element={<User {...userprops} />} />
+          <Route path="/customer" element={<Customer />} />
+        </Routes>
+      </Router>
+     
     </div>
   );
 }
