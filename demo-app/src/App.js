@@ -16,9 +16,6 @@ function App() {
 
   const contextValue = "Giá trị Context của bạn";
   const text = "Marathon Cấp Độ 2";
-  const setButton = ()=>{
-    setMainContent("Maincontent được set")
-  }
   
   const handleHeaderClick = useCallback(() => {
     console.log("handleHeaderClick is called with text:", text);
@@ -43,7 +40,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/" element={<Home />} />
         </Routes>
-          <button onClick={setButton}>set main</button>
         <Footer title={text} />
       </div>
     </Router>
