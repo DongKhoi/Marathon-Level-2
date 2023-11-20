@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import userService from "../services/UserService";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../actions/fetchData";
 function User(props) {
   const [array, setArray] = useState([]);
   var fetchUsers = async () => {
@@ -8,7 +10,17 @@ function User(props) {
     console.log("This is result:", Users);
     setArray(Users);
   };
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.users);
+  useEffect(() => {
+    if (!data) {
+      dispatch(fetchData());
+    }
+  });
   var { chooseColor } = props;
+  var handleClickBtn = () => {
+    dispatch(fetchData());
+  };
   var changeColorChild = () => {
     var r = document.getElementById("rInp");
     var g = document.getElementById("gInp");
@@ -43,6 +55,22 @@ function User(props) {
         <button onClick={changeColorChild}>Change Color</button>
       </div>
       <h2>Đây là nơi in ra mảng</h2>
+      <div>
+        day la noi in ra users
+        <button onClick={handleClickBtn}>click</button>
+        <ul
+          style={{
+            padding: "30px",
+            border: "solid 1px rgba(0,0,0,0.1)",
+            boxShadow: "3px 3px 3px rgba(0,0,0,0.4)",
+            width: "70%",
+          }}
+        >
+          {data.map((item, index) => {
+            return <li key={index}>{item.name}</li>;
+          })}
+        </ul>
+      </div>
       <button onClick={fetchUsers}>Call api</button>
       <ul
         style={{
