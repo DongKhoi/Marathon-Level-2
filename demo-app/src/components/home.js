@@ -36,6 +36,9 @@ const Home = () => {
       <Link to="/about">
         <button>Go to About</button>
       </Link>
+      <Link to="/redux">
+        <button>Go to Redux</button>
+      </Link>
     </div>
   );
 };

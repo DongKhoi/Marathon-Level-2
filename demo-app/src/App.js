@@ -5,13 +5,13 @@ import Footer from './components/footer';
 import YourContext from './components/yourContext';
 import Home from './components/home';
 import About from './components/about';
+import ReduxComponent from './components/reduxComponent';
+import ReduxThunkComponent from './components/reduxThunkComponent';
 
 function App() {
   const [mainContent, setMainContent] = useState("");
 
   useEffect(() => {
-    //call api
-    console.log("da set lai")
   }, []);
 
   const contextValue = "Giá trị Context của bạn";
@@ -37,6 +37,8 @@ function App() {
         <p>{mainContent}</p>
 
         <Routes> {/* Use 'Routes' instead of 'Switch' */}
+          <Route path="/redux-thunk" element={<ReduxThunkComponent />} />
+          <Route path="/redux" element={<ReduxComponent />} />
           <Route path="/about" element={<About />} />
           <Route path="/" element={<Home />} />
         </Routes>
