@@ -1,0 +1,23 @@
+.d-block {
+    display: block;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.col-center {
+    display: flex;
+    align-items: center;
+}
+
+.regist{
+    text-decoration: underline;
+}
+.regist:hover {
+    cursor: pointer;
+}
+
+.error{
+    color:red;
+}
