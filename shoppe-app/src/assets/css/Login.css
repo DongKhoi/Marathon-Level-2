@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+  }
+
+.input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #6a7eff;
+  }
+ 
+  .switch-form {
+    margin-top: 20px;
+    color: #666666;
+    font-size: 14px;
+  }
+  
+  .switch-form a {
+    color: #4a90e2;
+    text-decoration: none;
+    margin-left: 5px;
+  }
+  
+  .switch-form a:hover {
+    text-decoration: underline;
+  }
+  
+  
