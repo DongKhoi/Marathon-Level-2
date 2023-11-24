@@ -1,2 +1,10 @@
+.drawer {
+  width: 240px;
+  flex-shrink: 0;
+}
 
-  
+.mainContainer {
+  padding-left: 50%;
+  padding-top: 20px;
+  flex: 1;
+}
