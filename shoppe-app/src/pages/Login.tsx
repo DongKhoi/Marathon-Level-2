@@ -1,6 +1,7 @@
 import { Button, TextField, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 import '../assets/css/Login.css'
+import GoogleLogin from 'react-google-login';
 
 const useStyles = makeStyles((theme) => ({
   loginForm: {
@@ -42,6 +43,15 @@ const Login: React.FC <LoginProps> = ({onLoginSucces}) => {
     const [error, setError] = useState('')
     const [isRegister, setIsRegister] = useState(false)
     const classes = useStyles()
+    const cliendId = '937200536043-m06el2tvb83heea39ooafgpri76t0kjb.apps.googleusercontent.com'
+
+    const resGoogle = (response: any) =>  {
+      if (response.profileObj) {
+        localStorage.setItem('users', JSON.stringify(response.profileObj))
+        onLoginSucces(true)
+      }
+    };
+
 
     const handleLogin = () => {
         if(username.trim() === '' || password.trim() === '') {
@@ -65,6 +75,7 @@ const Login: React.FC <LoginProps> = ({onLoginSucces}) => {
     const handleSwitchForm = () => {
         setIsRegister((prevIsResister) => !prevIsResister);
     }
+
   return (
     <div className={classes.loginForm}>
       <div className={classes.loginForm}>
@@ -111,6 +122,15 @@ const Login: React.FC <LoginProps> = ({onLoginSucces}) => {
                     {isRegister ? 'Đăng nhập tại đây' : ' Đăng ký tại đây '}
                     </a>
                 </p>
+                <GoogleLogin
+                  clientId={cliendId}
+                  buttonText='Đăng nhập với Google'
+                  onSuccess={resGoogle}
+                  onFailure={resGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />
+
+                
             </form>
         </div>
     </div>

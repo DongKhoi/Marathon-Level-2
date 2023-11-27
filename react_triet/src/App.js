@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Use 'Routes' instead of 'Switch'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Components/header';
 import Footer from './Components/footer';
 import YourContext from './Components/yourContext';
@@ -36,7 +36,7 @@ function App() {
         </YourContext.Provider>
         <p>{mainContent}</p>
 
-        <Routes> {/* Use 'Routes' instead of 'Switch' */}
+        <Routes>
           <Route path="/redux-thunk" element={<ReduxThunkComponent />} />
           <Route path="/redux" element={<ReduxComponent />} />
           <Route path="/about" element={<About />} />
