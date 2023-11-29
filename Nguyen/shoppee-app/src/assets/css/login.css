@@ -6,9 +6,18 @@
     width: 100%;
 }
 
+.textCenter{
+    text-align: center;
+}
+
 .col-center {
     display: flex;
     align-items: center;
+}
+
+.row-center {
+    display: flex;
+    justify-content: center;
 }
 
 .regist{
@@ -20,4 +29,13 @@
 
 .error{
     color:red;
+}
+
+.pb-1 {
+    padding-bottom: 10px;
+}
+
+
+.pt-1 {
+    padding-top: 10px;
 }

@@ -11,12 +11,12 @@ const App :React.FC =()=>{
   return (<Router>
         <Routes>
           <Route
-            path="/"
+            path="/*"
             element={isLoggedIn ?<HomeComponent></HomeComponent>:<Navigate to="/login" />}
           ></Route>
           <Route
             path="/login"
-            element={isLoggedIn ?<HomeComponent></HomeComponent>:<LoginComponent setIsLoggedIn={setIsLoggedIn}></LoginComponent>}
+            element={isLoggedIn ?<Navigate to="/" />:<LoginComponent setIsLoggedIn={setIsLoggedIn}></LoginComponent>}
           ></Route>
         </Routes>
       </Router>)
