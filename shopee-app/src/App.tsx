@@ -39,7 +39,7 @@ function App() {
               )
             }
           />
-          <Route path="/*" element={isUserLoggedIn ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/*" element={isUserLoggedIn ? <Home onLoginSuccess={handleLoginSuccess} /> : <Navigate to="/login" />} />
         </Routes>
       </Router>
     </React.Fragment>

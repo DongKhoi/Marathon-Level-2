@@ -9,3 +9,8 @@
     padding-top: 20px;
     flex: 1;
 }
+
+.MuiDrawer-paper
+{
+    margin-top: 65px !important;
+}
