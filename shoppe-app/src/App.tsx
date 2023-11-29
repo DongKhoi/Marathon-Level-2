@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from './pages/Login';
 import Home from './pages/Home';
 import { gapi } from 'gapi-script';
+import './App.css'
 
 function App() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(!!localStorage.getItem('user'))
-
 
   const handleLoginSucces = (isLoggedIn: boolean) => {
     setIsUserLoggedIn(isLoggedIn);
@@ -37,7 +37,7 @@ function App() {
           )
         }
         />
-        <Route path='/*' element={isUserLoggedIn ? <Home /> : <Navigate to='/login' />} />
+        <Route path='/*' element={isUserLoggedIn ? <Home onLoginSucces={handleLoginSucces} /> : <Navigate to='/login' />} />
         </Routes>
       </Router>
     </React.Fragment>

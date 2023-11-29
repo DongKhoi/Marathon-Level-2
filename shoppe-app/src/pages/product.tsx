@@ -2,7 +2,7 @@ import React from 'react';
 
 const Component2: React.FC = () => {
   return (
-    <div>Component2</div>
+    <h4>Quản lý sản phẩm</h4>
   );
 }
 

@@ -2,12 +2,19 @@ import React from 'react';
 import '../assets/css/Home.css'
 import { Box, Drawer, List, ListItem, ListItemText } from '@material-ui/core';
 import { Link, Route, Routes } from 'react-router-dom';
-import Component1 from './Component1';
-import Component2 from './Component2';
+import Component1 from './order';
+import Component2 from './product';
+import Header from '../components/header';
+import '../assets/css/Home.css'
 
-const Home: React.FC = () => {
+interface LoginProps {
+  onLoginSucces: (isLoggedIn: boolean) => void;
+}
+
+const Home: React.FC<LoginProps> = ({ onLoginSucces }) => {
   return (
     <Box display='flex'>
+      <Header onLoginSucces={onLoginSucces} />
         <Drawer 
           variant='permanent'
           anchor='left'
@@ -15,10 +22,10 @@ const Home: React.FC = () => {
         >
           <List>
           <ListItem button component={Link} to="/component1">
-                <ListItemText primary="component 1" />
+                <ListItemText primary="Quản lý đơn hàng" />
             </ListItem>
             <ListItem button component={Link} to="/component2">
-                <ListItemText primary="component 2" />
+                <ListItemText primary="Quản lý sản phẩm" />
             </ListItem>
           </List>
         </Drawer>

@@ -8,3 +8,17 @@
   padding-top: 20px;
   flex: 1;
 }
+
+.MuiDrawer-paper
+{
+    margin-top: 65px !important;
+}
+
+.MuiToolbar-regular {
+    min-height: 64px;
+    background: rgb(213, 133, 134);
+}
+
+.MuiIconButton {
+  background-color: aliceblue;
+}
