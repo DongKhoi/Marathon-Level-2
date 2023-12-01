@@ -33,7 +33,7 @@ const Home: React.FC<LoginProps> = ({ onLoginSuccess }) => {
       {/* Main content */}
       <Box className="mainContent">
         <Routes>
-          <Route path="/" element={<Order />} />
+          <Route path="/*" element={<Order />} />
           <Route path="/product" element={<Product />} />
         </Routes>
       </Box>
