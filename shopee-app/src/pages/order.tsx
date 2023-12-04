@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tabs, Tab, Box, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
 import AllPage from './orderPages/allPage';
 
 const useStyles = makeStyles({
@@ -13,10 +13,32 @@ const useStyles = makeStyles({
 const Order: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
   const classes = useStyles(); // Sử dụng useStyles
+  const location = useLocation();
 
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setActiveTab(newValue);
   };
+
+  useEffect(() => {
+    // Define a mapping between paths and tab indices
+    const pathToTabIndex: { [key: string]: number } = {
+      '/': 0,
+      '/confirming': 1,
+      '/waiting': 2,
+      '/delivering': 3,
+      '/success': 4,
+      '/cancel': 5,
+      '/refund': 6,
+      '/failure': 7,
+    };
+
+    // Get the active tab index based on the current path
+    const tabIndex = pathToTabIndex[location.pathname] || 0;
+
+    // Set the active tab
+    setActiveTab(tabIndex);
+  }, [location.pathname]);
+
 
   return (
     <Container>
