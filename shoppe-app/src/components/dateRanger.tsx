@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     exportButton: {
       marginLeft: theme.spacing(2),
+      background: 'rgb(213, 133, 134)',
     },
   })
 );

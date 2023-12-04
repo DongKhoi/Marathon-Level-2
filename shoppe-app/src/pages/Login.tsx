@@ -47,7 +47,7 @@ const Login: React.FC <LoginProps> = ({onLoginSucces}) => {
 
     const resGoogle = (response: any) =>  {
       if (response.profileObj) {
-        localStorage.setItem('users', JSON.stringify(response.profileObj))
+        localStorage.setItem('user', JSON.stringify(response.profileObj))
         onLoginSucces(true)
       }
     };

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tabs, Tab, Box, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
 import AllPage from './orderPage/allPage';
 
 const useStyles = makeStyles({
@@ -13,10 +13,27 @@ const useStyles = makeStyles({
 const Order: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
   const classes = useStyles();
+  const location = useLocation();
 
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setActiveTab(newValue);
   };
+
+
+  useEffect(() => {
+    const pathToTabIndex: { [key: string]: number } = {
+      '/': 0,
+      '/confirming': 1,
+      '/waiting': 2,
+      '/delivering': 3,
+      '/success': 4,
+      '/cancel': 5,
+      '/refund': 6,
+      '/failure': 7,
+    };
+    const tabIndex = pathToTabIndex[location.pathname] || 0;
+    setActiveTab(tabIndex);
+  }, [location.pathname]);
 
   return (
     <Container>

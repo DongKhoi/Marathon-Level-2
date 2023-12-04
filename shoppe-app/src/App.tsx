@@ -21,6 +21,7 @@ function App() {
 
   useEffect(() => {
     gapi.load("client:auth2", initializeGapi);
+    console.log(isUserLoggedIn);
   })
 
   return (

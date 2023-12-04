@@ -32,7 +32,7 @@ const Home: React.FC<LoginProps> = ({ onLoginSucces }) => {
         <Box className='mainContainer'>
         <Routes>
           <Route path="/*" element={<Order />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product/*" element={<Product />} />
         </Routes>
         </Box>
     </Box>

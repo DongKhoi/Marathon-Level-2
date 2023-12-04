@@ -1,4 +1,4 @@
-import { AppBar, Avatar, Container, IconButton, MenuItem, Popover, Toolbar, Typography, makeStyles } from '@material-ui/core';
+import { AppBar, Avatar, IconButton, MenuItem, Popover, Toolbar, Typography, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 
 
@@ -30,7 +30,7 @@ const Header: React.FC<LoginProps> = ({ onLoginSucces }) => {
       };
     
       const handleLogout = () => {
-        localStorage.removeItem("users");
+        localStorage.removeItem("user");
         onLoginSucces(false);
       };
   return (
