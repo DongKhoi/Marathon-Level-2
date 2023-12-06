@@ -3,6 +3,7 @@ import React from 'react';
 import DateRanger from '../../components/dateRanger';
 import FilterComponent from '../../components/filter';
 import TableDataComponent from '../../components/tableData';
+import productData from '../../services/products.json';
 
 
 
@@ -18,12 +19,6 @@ const useStyles = makeStyles({
 const AllPage: React.FC = () => {
     const classes = useStyles()
 
-
-    const tableData = [
-      { id: 1, productName: 'Sản phẩm 1', orderTotal: 100, status: 'Đang xử lý' },
-      { id: 2, productName: 'Sản phẩm 2', orderTotal: 200, status: 'Đang vận chuyển' },
-    ];
-
   return (
     <Box>
     <Box className={classes.root} style={{ paddingRight: 85 }}>
@@ -33,7 +28,7 @@ const AllPage: React.FC = () => {
       <FilterComponent />
       <Box style={{ paddingTop: 10 }}>
         <Typography>0 Đơn hàng</Typography>
-        <TableDataComponent data={tableData} />
+        <TableDataComponent data={productData} />
       </Box>
     </Box>
   </Box>
