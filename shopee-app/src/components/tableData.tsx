@@ -1,19 +1,11 @@
 import React from "react";
 import { Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
 
-interface Product {
-  id: number;
-  productName: string;
-  orderTotal: number;
-  status: string;
-  // Add more fields as needed
-}
-
 interface TableComponentProps {
-  data: Product[];
+  data: any[];
 }
 
-const TableDataComponent: React.FC<TableComponentProps> = ({ data }) => {
+const TableDataComponent: React.FC<TableComponentProps> = ({ data }: any) => {
   return (
     <Table>
       <TableHead>
@@ -26,7 +18,7 @@ const TableDataComponent: React.FC<TableComponentProps> = ({ data }) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {data.map((product) => (
+        {data.map((product: any) => (
           <TableRow key={product.id}>
             <TableCell>{product.id}</TableCell>
             <TableCell>{product.productName}</TableCell>
