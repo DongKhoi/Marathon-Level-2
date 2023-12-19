@@ -1,18 +1,53 @@
-import React from 'react';
-import User from './components/user';
+import React, { useState, useEffect, useCallback } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Use 'Routes' instead of 'Switch'
+import Header from './components/header';
+import Footer from './components/footer';
+import YourContext from './components/yourContext';
+import Home from './components/home';
+import About from './components/about';
 
 function App() {
-  const userData = {
-    name: 'Trieu',
-    age: 18,
-    phone: '0947382101',
+  const [mainContent, setMainContent] = useState("");
+
+  useEffect(() => {
+    //call api
+    console.log("da set lai")
+  }, []);
+
+  const contextValue = "Giá trị Context của bạn";
+  const text = "Marathon Cấp Độ 2";
+  const setButton = ()=>{
+    setMainContent("Maincontent được set")
+  }
+  
+  const handleHeaderClick = useCallback(() => {
+    console.log("handleHeaderClick is called with text:", text);
+    setMainContent("Component được mount22");
+  }, [text]);
+
+  const headerProps = {
+    title: 'Tiêu đề Tùy chỉnh',
+    subtitle: 'Phụ đề cho tiêu đề',
+    onClick: handleHeaderClick,
   };
 
   return (
-    <div>
-      <User {...userData} />
-    </div>
+    <Router>
+      <div>
+        <YourContext.Provider value={contextValue}>
+          <Header {...headerProps} />
+        </YourContext.Provider>
+        <p>{mainContent}</p>
+
+        <Routes> {/* Use 'Routes' instead of 'Switch' */}
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+          <button onClick={setButton}>set main</button>
+        <Footer title={text} />
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;
