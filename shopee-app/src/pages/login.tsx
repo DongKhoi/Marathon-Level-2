@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import '../assets/css/login.css'; // Import file CSS
+import { GoogleLogin } from 'react-google-login';
 
 interface LoginProps {
   onLoginSuccess: (isLoggedIn: boolean) => void;
@@ -15,14 +16,22 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [isRegister, setIsRegister] = useState(false);
+  const clientId = '188155419196-pfmci8cpmv91o1hcu9p2ar3cm5vc5iin.apps.googleusercontent.com';
+
+  const responseGoogle = (response: any) => {
+    if(response.profileObj)
+    {
+      localStorage.setItem('user', JSON.stringify(response.profileObj));
+      onLoginSuccess(true);
+    }
+  };
 
   const handleLogin = () => {
     if (username.trim() === '' || password.trim() === '') {
       setError('Vui lòng nhập đầy đủ tên người dùng và mật khẩu');
       return;
     } else {
-      localStorage.setItem('user', 'userShopee');
-      onLoginSuccess(true); // Call the callback to update the state in App.tsx
+      onLoginSuccess(true);
     }
   };
 
@@ -34,9 +43,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
       setError('Mật khẩu và mật khẩu nhập lại không khớp');
       return;
     } else {
-      localStorage.setItem('user', 'userShopee');
-      // Thực hiện đăng ký ở đây, ví dụ localStorage.setItem('user', 'userShopee');
-      // Nếu thành công, có thể chuyển hướng trang hoặc thực hiện các thao tác cần thiết
+      //coding
     }
   };
 
@@ -92,6 +99,13 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
               {isRegister ? 'Login here' : 'Register here'}
             </a>
           </p>
+          <GoogleLogin
+            clientId={clientId}
+            buttonText="Login with Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
         </form>
       </div>
     </div>
