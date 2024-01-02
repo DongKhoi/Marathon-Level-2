@@ -15,7 +15,7 @@ function App() {
 
   const initializeGapi = () => {
     gapi.client.init({
-      clientId: "188155419196-pfmci8cpmv91o1hcu9p2ar3cm5vc5iin.apps.googleusercontent.com",
+      clientId: "611766092880-tf2reijp7r5lb1brl5f6qk9sb8k96kss.apps.googleusercontent.com",
       scope: "",
     });
   };
@@ -39,7 +39,7 @@ function App() {
               )
             }
           />
-          <Route path="/*" element={isUserLoggedIn ? <Home /> : <Navigate to="/login" />} />
+          <Route path="/*" element={isUserLoggedIn ? <Home onLoginSuccess={handleLoginSuccess} /> : <Navigate to="/login" />} />
         </Routes>
       </Router>
     </React.Fragment>

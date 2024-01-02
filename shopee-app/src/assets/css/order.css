@@ -1,0 +1,6 @@
+/* Customize the font size and other styles as needed */
+.MuiTab-labelIcon,
+.MuiTab-labelText {
+    font-size: 14px;
+    /* Adjust the font size as needed */
+}
