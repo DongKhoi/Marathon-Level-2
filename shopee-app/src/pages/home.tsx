@@ -1,10 +1,10 @@
 import React from "react";
-import { 
-  Drawer, 
-  List, 
-  ListItem, 
-  ListItemText, 
-  Box, 
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Box,
 } from "@material-ui/core";
 import { Route, Routes, Link } from "react-router-dom";
 import Order from "./order";
@@ -31,15 +31,14 @@ const Home: React.FC<LoginProps> = ({ onLoginSuccess }) => {
           </List>
         </Drawer>
         {/* Main content */}
-        <Box className="mainContent">  
+        <Box className="mainContent">
           <Routes>
-            <Route path="/" element={<Order />} />
+            <Route path="/*" element={<Order />} />
             <Route path="/product" element={<Product />} />
           </Routes>
         </Box>
       </Box>
     );
   };
-  
+
   export default Home;
-  

@@ -5,9 +5,14 @@
 }
 
 .mainContent {
-    padding-left: 50%;
     padding-top: 20px;
     flex: 1;
+}
+
+.MuiTabs-centered
+{
+    padding-left: 150px;
+    justify-content: start !important;
 }
 
 .MuiDrawer-paper
